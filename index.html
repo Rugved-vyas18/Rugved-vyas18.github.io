@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Rugved Vyas — AI systems that know when they're wrong</title>
+    <link rel="canonical" href="https://rugved-vyas18.github.io/" />
+    <meta property="og:url" content="https://rugved-vyas18.github.io/" />
+    <meta
+      name="description"
+      content="Rugved Vyas, AI / LLM engineer in Ahmedabad. Retrieval pipelines and agents that cite every claim, or refuse and hand the question to a person."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#86c3f7" />
+    <meta property="og:title" content="Rugved Vyas — AI systems that know when they're wrong" />
+    <meta
+      property="og:description"
+      content="Retrieval pipelines and agents that cite every claim, or refuse. Six systems, each one opened up: what goes in, what comes out, what it can't do."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://rugved-vyas18.github.io/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rugved Vyas's name in huge letters against a blue sky, with a small cartoon of him standing on top of it." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" data-icon />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preload" href="./assets/archivo-DY7AcnAa.woff2" as="font" type="font/woff2" crossorigin />
+    <script>
+      // Before first paint: is it day or night, and does this visitor want stillness?
+      (function () {
+        var d = document.documentElement, t = null, m = null;
+        d.classList.add('js');
+        if (document.startViewTransition) d.classList.add('vt');
+        try { t = localStorage.getItem('rv-theme'); m = localStorage.getItem('rv-motion'); } catch (e) {}
+        var q = new URLSearchParams(location.search).get('theme');
+        if (q === 'day' || q === 'night') t = q;
+        if (t !== 'day' && t !== 'night') {
+          var h = new Date().getHours();
+          var dark = matchMedia('(prefers-color-scheme: dark)').matches;
+          t = dark || h >= 19 || h < 6 ? 'night' : 'day';
+          d.setAttribute('data-auto', h >= 19 || h < 6 ? 'clock' : dark ? 'system' : 'day');
+        }
+        d.setAttribute('data-theme', t);
+        if (m === 'calm' || (m !== 'full' && matchMedia('(prefers-reduced-motion: reduce)').matches)) d.setAttribute('data-motion', 'calm');
+      })();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rugved Vyas",
+        "jobTitle": "Software Developer (AI/ML)",
+        "description": "AI / LLM engineer building retrieval pipelines and agents that cite every claim, or refuse.",
+        "worksFor": { "@type": "Organization", "name": "emPower eLearning" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressCountry": "IN" },
+        "email": "mailto:vyasrugved18@gmail.com",
+        "sameAs": ["https://github.com/Rugved-vyas18", "https://www.linkedin.com/in/rugved-vyas/"],
+        "knowsAbout": ["Retrieval-augmented generation", "LLM evaluation", "Agentic systems", "Claim verification", "Computer vision"]
+      }
+    </script>
+    <script type="module" crossorigin src="./assets/index-7A5edWC2.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BgIl6z09.css">
+  </head>
+  <body>
+    <a class="skip" href="#work">Skip to the work</a>
+
+    <header class="bar" id="bar">
+      <a class="bar__mark" href="#top" aria-label="Rugved Vyas, back to top">
+        <svg viewBox="0 0 44 20" width="44" height="20" aria-hidden="true">
+          <rect x="1.5" y="3" width="17" height="11" rx="3" />
+          <rect x="25.5" y="3" width="17" height="11" rx="3" />
+          <path d="M18.5 6.5q3.5-2.5 7 0" fill="none" stroke-width="2.2" />
+        </svg>
+        <span>Rugved Vyas</span>
+      </a>
+      <nav class="bar__nav" aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#method">Method</a>
+        <a href="#ask">Ask</a>
+        <a href="#record">Record</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="bar__act">
+        <a class="bar__link" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <div class="ctl" role="group" aria-label="Display and sound">
+          <button class="ctl__b" type="button" data-theme-toggle aria-pressed="false" aria-label="Night" data-tip="Switch to night"><svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" /><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3 7 7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" /></svg><svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2z" /></svg></button>
+          <button class="ctl__b" type="button" data-sound-toggle aria-pressed="false" aria-label="Sound" data-tip="Hear what he hears"><svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.2L12 18.5v-13L7.2 9.5z" /><path d="m16.5 9.7 4 4.6M20.5 9.7l-4 4.6" /></svg><svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.2L12 18.5v-13L7.2 9.5z" /><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.3 6.5a8 8 0 0 1 0 11" /></svg></button>
+          <button class="ctl__b" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause motion" data-tip="Pause motion"><svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12" /></svg><svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" /></svg></button>
+        </div>
+        <button class="btn btn--ink btn--sm" type="button" data-copy-email>
+          <span data-copy-label>Copy email</span>
+        </button>
+        <button class="ctl__b bar__menu" type="button" data-menu-open aria-label="Menu" aria-haspopup="dialog" aria-controls="menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5h16M4 15.5h16" /></svg>
+        </button>
+      </div>
+    </header>
+
+    <div id="world" aria-hidden="true"></div>
+
+    <main id="main">
+      <!-- ───────────────────────── Hero ───────────────────────── -->
+      <section class="hero" id="top" data-stage="hero">
+        <div class="heaven" data-sky="hero">
+          <div class="stars" aria-hidden="true"></div>
+          <svg class="constellation" viewBox="0 0 120 66" aria-hidden="true">
+            <g>
+              <line x1="8" y1="10" x2="44" y2="10" /><line x1="44" y1="10" x2="44" y2="27" /><line x1="44" y1="27" x2="8" y2="27" /><line x1="8" y1="27" x2="8" y2="10" />
+              <line x1="62" y1="10" x2="98" y2="10" /><line x1="98" y1="10" x2="98" y2="27" /><line x1="98" y1="27" x2="62" y2="27" /><line x1="62" y1="27" x2="62" y2="10" />
+              <line x1="44" y1="13" x2="62" y2="13" />
+              <line x1="16" y1="40" x2="24" y2="47" /><line x1="24" y1="47" x2="39" y2="42" /><line x1="39" y1="42" x2="53" y2="46" /><line x1="53" y1="46" x2="67" y2="42" /><line x1="67" y1="42" x2="82" y2="47" /><line x1="82" y1="47" x2="90" y2="40" />
+            </g>
+            <circle cx="8" cy="10" r="1.6" /><circle cx="44" cy="10" r="1.1" /><circle cx="44" cy="27" r="1.4" /><circle cx="8" cy="27" r="1" />
+            <circle cx="62" cy="10" r="1.2" /><circle cx="98" cy="10" r="1.7" /><circle cx="98" cy="27" r="1" /><circle cx="62" cy="27" r="1.4" />
+            <circle cx="16" cy="40" r="1.1" /><circle cx="24" cy="47" r="1.5" /><circle cx="39" cy="42" r="1" /><circle cx="53" cy="46" r="1.7" /><circle cx="67" cy="42" r="1" /><circle cx="82" cy="47" r="1.4" /><circle cx="90" cy="40" r="1.2" />
+            <text x="53" y="62" text-anchor="middle">Rugved Major</text>
+          </svg>
+          <span class="shoot" aria-hidden="true"></span>
+          <span class="dusk" aria-hidden="true"></span>
+          <span class="cloud cloud--a" aria-hidden="true"></span>
+          <span class="cloud cloud--b" aria-hidden="true"></span>
+          <span class="cloud cloud--c" aria-hidden="true"></span>
+          <button class="orb orb--sun" type="button" data-orb="sun" aria-label="The sun. Press it and night falls."><span class="orb__disc"></span></button>
+          <button class="orb orb--moon" type="button" data-orb="moon" aria-label="The moon. Press it and the sun comes back."><span class="orb__disc"></span></button>
+        </div>
+
+        <div class="hero__top">
+          <p class="label">AI / LLM engineer · RAG · agents · evaluation</p>
+          <p class="label label--soft">Ahmedabad, India · <span data-clock>IST</span></p>
+        </div>
+
+        <h1 class="name" id="name" aria-label="Rugved Vyas">
+          <span class="name__w" data-ledge="name-a" aria-hidden="true"
+            ><span>R</span><span>U</span><span>G</span><span>V</span><span>E</span><span>D</span></span
+          >
+          <span class="name__w" data-ledge="name-b" aria-hidden="true"
+            ><span>V</span><span>Y</span><span>A</span><span>S</span></span
+          >
+        </h1>
+
+        <div class="hero__base">
+          <p class="thesis">I build AI systems that know when they’re&nbsp;wrong.</p>
+          <div class="hero__copy">
+            <p>
+              Retrieval pipelines and agents that cite every claim, or refuse and hand the question to a person.
+              Software Developer (AI/ML) at emPower eLearning.
+            </p>
+            <a class="proof lit" href="#glassbox">
+              <span class="proof__n">14/14</span>
+              <span>answer-or-refuse decisions correct in GlassBox <b>→</b></span>
+            </a>
+          </div>
+          <div class="hero__cta">
+            <a class="btn btn--ink" href="#work">Open the boxes <span aria-hidden="true">↓</span></a>
+            <button class="btn" type="button" data-copy-email><span data-copy-label>Copy email</span></button>
+            <p class="hero__links">
+              <a href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+              <a href="https://github.com/Rugved-vyas18" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://www.linkedin.com/in/rugved-vyas/" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+        <p class="hint" data-hint aria-hidden="true">that’s me. pick me up.</p>
+      </section>
+
+      <!-- ───────────────────────── Work ───────────────────────── -->
+      <section class="work" id="work">
+        <header class="work__intro">
+          <p class="label">Work · 2022 — 2026</p>
+          <h2 class="h2">Most AI is a black box.<br /><em>I build the kind you can open.</em></h2>
+          <p class="lede">
+            Six systems. Each one stays shut until you reach it, then it shows what goes in, what comes out, and what it
+            can’t do.
+          </p>
+          <ol class="index" aria-label="Projects">
+            <li><a href="#glassbox"><b>01</b> GlassBox <i>RAG + verification</i></a></li>
+            <li><a href="#citrus"><b>02</b> Citrus Detection <i>Computer vision</i></a></li>
+            <li><a href="#rose"><b>03</b> Rose Leaf Disease <i>Computer vision</i></a></li>
+            <li><a href="#smartsurv"><b>04</b> SmartSurv <i>Edge · IoT</i></a></li>
+            <li><a href="#advision"><b>05</b> AdVision <i>Predictive analytics</i></a></li>
+            <li><a href="#career"><b>06</b> Smart Career <i>Recommender · NLP</i></a></li>
+          </ol>
+        </header>
+
+        <!-- 01 GlassBox -->
+        <article class="exhibit exhibit--wide" id="glassbox" data-stage="glassbox" data-open="knock">
+          <div class="exhibit__text">
+            <p class="exhibit__num" aria-hidden="true">01</p>
+            <p class="label">RAG + verification · 2026 · solo build</p>
+            <h3 class="exhibit__name">GlassBox</h3>
+            <p class="exhibit__line">A RAG engine that cites every claim, or refuses to answer at all.</p>
+            <p class="exhibit__body">
+              A question-answering engine for anti-money-laundering rules in the US, EU and Brazil. It splits every
+              answer into individual claims, checks each one against the passage it cites, removes what isn’t supported,
+              and when the evidence is too weak it refuses and hands the question to a person.
+            </p>
+            <dl class="stats">
+              <div class="stat stat--big"><dt>14/14</dt><dd>answer-or-refuse decisions correct<small>10 answered, 4 refused</small></dd></div>
+              <div class="stat"><dt>0.975</dt><dd>faithfulness<small>2 unsupported claims in 1 case, both caught</small></dd></div>
+              <div class="stat"><dt>1.0</dt><dd>citation validity<small>every citation resolved to a real span</small></dd></div>
+              <div class="stat"><dt>7.9 s</dt><dd>average latency<small>retrieval is about 150 ms of it</small></dd></div>
+            </dl>
+            <p class="fine">
+              Benchmark of 14 hand-built cases, run once on my machine on 20 Sep 2026. Verdicts come from GlassBox’s
+              own verifier (Gemini 2.5 Flash).
+            </p>
+            <ul class="chips" aria-label="Stack">
+              <li>FastAPI</li><li>Qdrant</li><li>bge-small-en-v1.5</li><li>NetworkX</li><li>Gemini 2.5 Flash</li><li>Docker</li><li>38 offline tests</li>
+            </ul>
+            <div class="limits">
+              <p class="label">What it can’t do</p>
+              <ul>
+                <li>No cross-encoder reranker.</li>
+                <li>No production users: a solo build on public regulatory data.</li>
+                <li>Injection defence is pattern-based, not a trained classifier.</li>
+                <li>No PII detection or redaction.</li>
+              </ul>
+            </div>
+            <a class="more" href="https://github.com/Rugved-vyas18/glassbox-verifiable-rag" target="_blank" rel="noopener">Code on GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="box" data-box data-lid="glass">
+            <div class="box__frame lit" data-ledge="box">
+              <div class="box__inside" data-demo="glassbox"></div>
+            </div>
+            <p class="box__note">Real output, captured from the running system on 20 Sep 2026. Replayed here, sped up.</p>
+          </div>
+        </article>
+
+        <!-- 02 Citrus -->
+        <article class="exhibit exhibit--flip" id="citrus" data-stage="citrus" data-open="stomp">
+          <div class="exhibit__text">
+            <p class="exhibit__num" aria-hidden="true">02</p>
+            <p class="label">Computer vision · 2025</p>
+            <h3 class="exhibit__name">Citrus Detection</h3>
+            <p class="exhibit__line">Finds and grades fruit on the tree in real time, through leaves and glare.</p>
+            <p class="exhibit__body">
+              A detector that scored well on clean data broke in a real orchard: shade, glare, fruit half-hidden by
+              leaves. What moved the numbers wasn’t a bigger model. It was going back through the annotations, the
+              augmentation and the failure cases. Everything I’ve built since starts there.
+            </p>
+            <dl class="stats">
+              <div class="stat stat--big"><dt>30+</dt><dd>frames per second<small>real-time inference</small></dd></div>
+              <div class="stat"><dt>YOLOv8</dt><dd>detector</dd></div>
+              <div class="stat"><dt>ResNet-50</dt><dd>ripeness classifier</dd></div>
+            </dl>
+            <ul class="chips" aria-label="Stack">
+              <li>PyTorch</li><li>YOLOv8</li><li>ResNet-50</li><li>OpenCV</li><li>Albumentations</li>
+            </ul>
+            <div class="limits">
+              <p class="label">What it can’t do</p>
+              <ul><li>Trained and evaluated on a research dataset, not deployed in a commercial orchard.</li></ul>
+            </div>
+          </div>
+          <div class="box" data-box data-lid="doors">
+            <div class="box__frame lit" data-ledge="box">
+              <div class="box__inside" data-demo="citrus"></div>
+            </div>
+            <p class="box__note" data-note="citrus">
+              A public detector’s real boxes (YOLOv8x, COCO) on openly licensed photos. It shows the detection stage; my
+              trained model and data aren’t public.
+            </p>
+          </div>
+        </article>
+
+        <!-- 03 Rose -->
+        <article class="exhibit" id="rose" data-stage="rose" data-open="snap">
+          <div class="exhibit__text">
+            <p class="exhibit__num" aria-hidden="true">03</p>
+            <p class="label">Computer vision · 2025</p>
+            <h3 class="exhibit__name">Rose Leaf Disease</h3>
+            <p class="exhibit__line">Tells Black Spot from Downy Mildew from a healthy leaf, in field conditions.</p>
+            <p class="exhibit__body">
+              I trained ResNet50, MobileNetV2 and EfficientNetB0 on the same data under the same conditions and
+              reported all three, not only the winner. EfficientNetB0 came out ahead.
+            </p>
+            <dl class="stats">
+              <div class="stat stat--big"><dt>~97%</dt><dd>accuracy and F1<small>EfficientNetB0, best of three</small></dd></div>
+              <div class="stat"><dt>3</dt><dd>architectures benchmarked<small>same data, same conditions</small></dd></div>
+            </dl>
+            <ul class="chips" aria-label="Stack">
+              <li>TensorFlow</li><li>Keras</li><li>EfficientNetB0</li><li>ResNet50</li><li>MobileNetV2</li>
+            </ul>
+            <div class="limits">
+              <p class="label">What it can’t do</p>
+              <ul><li>Three classes only; anything outside them is misclassified, not rejected.</li></ul>
+            </div>
+          </div>
+          <div class="box" data-box data-lid="iris">
+            <div class="box__frame lit" data-ledge="box">
+              <div class="box__inside" data-demo="rose"></div>
+            </div>
+            <p class="box__note" data-note="rose">
+              Not my model: a general zero-shot model (CLIP) reading openly licensed photos. It gets 7 of 12. That is
+              the baseline a trained classifier has to beat.
+            </p>
+          </div>
+        </article>
+
+        <!-- 04 SmartSurv -->
+        <article class="exhibit exhibit--flip" id="smartsurv" data-stage="smartsurv" data-open="knock">
+          <div class="exhibit__text">
+            <p class="exhibit__num" aria-hidden="true">04</p>
+            <p class="label">Edge · IoT · 2023</p>
+            <h3 class="exhibit__name">SmartSurv</h3>
+            <p class="exhibit__line">Watches four camera feeds at once on a single Raspberry Pi.</p>
+            <p class="exhibit__body">
+              Built in 72 hours with the hardware and the latency budget fixed before a line of code was written. Frame
+              differencing and background subtraction across four feeds, multi-threaded, with alerts out over the Gmail
+              API.
+            </p>
+            <dl class="stats">
+              <div class="stat stat--big"><dt>&lt;20 ms</dt><dd>detection latency<small>on a Raspberry Pi 4</small></dd></div>
+              <div class="stat"><dt>4+</dt><dd>simultaneous feeds</dd></div>
+              <div class="stat"><dt>90%+</dt><dd>detection accuracy</dd></div>
+            </dl>
+            <p class="award"><span aria-hidden="true">★</span> Top Team in Gujarat · national finalist, Code Unnati Innovation Marathon 2023</p>
+            <ul class="chips" aria-label="Stack">
+              <li>Python</li><li>OpenCV</li><li>Raspberry Pi 4</li><li>Multi-threading</li><li>Gmail API</li>
+            </ul>
+            <div class="limits">
+              <p class="label">What it can’t do</p>
+              <ul><li>Frame differencing detects movement, not what moved.</li></ul>
+            </div>
+          </div>
+          <div class="box" data-box data-lid="crt">
+            <div class="box__frame lit" data-ledge="box">
+              <div class="box__inside" data-demo="surv"></div>
+            </div>
+            <p class="box__note">
+              SmartSurv’s method run on four openly licensed street clips, not the Pi itself; the &lt;20 ms figure is from
+              the Pi. Footage: SHOX ART, khanhhoangminh and Image Hunter (Pexels); Vicente Quintero (CC BY 3.0).
+            </p>
+          </div>
+        </article>
+
+        <!-- 05 AdVision -->
+        <article class="exhibit" id="advision" data-stage="advision" data-open="stomp">
+          <div class="exhibit__text">
+            <p class="exhibit__num" aria-hidden="true">05</p>
+            <p class="label">Predictive analytics · 2024</p>
+            <h3 class="exhibit__name">AdVision</h3>
+            <p class="exhibit__line">Predicts which ad campaigns will work, and says where the budget should go.</p>
+            <p class="exhibit__body">
+              Heavy feature engineering over 10,000+ campaign records, then eight-plus algorithms benchmarked against
+              each other instead of committing to one up front. The output is framed as decisions, not a leaderboard
+              score.
+            </p>
+            <dl class="stats">
+              <div class="stat stat--big"><dt>+15%</dt><dd>over baseline<small>Random Forest</small></dd></div>
+              <div class="stat"><dt>8+</dt><dd>algorithms benchmarked</dd></div>
+              <div class="stat"><dt>10K+</dt><dd>campaign records</dd></div>
+            </dl>
+            <ul class="chips" aria-label="Stack">
+              <li>Python</li><li>Scikit-Learn</li><li>XGBoost</li><li>Pandas</li><li>Seaborn</li>
+            </ul>
+            <div class="limits">
+              <p class="label">What it can’t do</p>
+              <ul><li>Trained on historical campaign data; no live A/B validation.</li></ul>
+            </div>
+          </div>
+          <div class="box" data-box data-lid="bars">
+            <div class="box__frame lit" data-ledge="box">
+              <div class="box__inside" data-demo="advision"></div>
+            </div>
+            <p class="box__note">A diagram of the pipeline. Nothing from this one is left to run, so nothing here pretends to be output.</p>
+          </div>
+        </article>
+
+        <!-- 06 Smart Career -->
+        <article class="exhibit exhibit--flip" id="career" data-stage="career" data-open="snap">
+          <div class="exhibit__text">
+            <p class="exhibit__num" aria-hidden="true">06</p>
+            <p class="label">Recommender · NLP · 2022</p>
+            <h3 class="exhibit__name">Smart Career</h3>
+            <p class="exhibit__line">Recommends a career path from what a student has studied and what they like.</p>
+            <p class="exhibit__body">
+              A hybrid recommender that combines content-based and collaborative filtering, with TF-IDF feature
+              extraction over what a student studied and what they said they enjoy.
+            </p>
+            <dl class="stats">
+              <div class="stat stat--big"><dt>72%</dt><dd>recommendation accuracy</dd></div>
+              <div class="stat"><dt>2nd</dt><dd>of 50+ teams<small>SSIP Hackathon 2022</small></dd></div>
+            </dl>
+            <p class="award"><span aria-hidden="true">★</span> Runner-up, SSIP Hackathon 2022</p>
+            <ul class="chips" aria-label="Stack">
+              <li>Python</li><li>Scikit-Learn</li><li>Flask</li><li>TF-IDF</li><li>Cosine similarity</li>
+            </ul>
+            <div class="limits">
+              <p class="label">What it can’t do</p>
+              <ul><li>Cold start is weak: a brand-new user gets content-based results only.</li></ul>
+            </div>
+          </div>
+          <div class="box" data-box data-lid="tiles">
+            <div class="box__frame lit" data-ledge="box">
+              <div class="box__inside" data-demo="career"></div>
+            </div>
+            <p class="box__note">A diagram of how the two rankings are blended. The paths shown are placeholders, not results.</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- ───────────────────────── Method ───────────────────────── -->
+      <section class="method" id="method" data-stage="method">
+        <header class="section__head">
+          <p class="label">Method</p>
+          <h2 class="h2">How I work</h2>
+          <p class="lede">
+            Four rules. The first came from citrus detection on real orchard images; the rest are how GlassBox is built.
+          </p>
+        </header>
+        <ol class="rules">
+          <li class="rule" data-rule="inspect" data-ledge="rule-0" tabindex="0">
+            <span class="rule__n">01</span>
+            <h3>Find the failure cases first</h3>
+            <p>A detector that scored well on clean data broke on real orchard images. I start from the data and where it fails, not from a bigger model.</p>
+            <span class="rule__src">Citrus detection</span>
+          </li>
+          <li class="rule" data-rule="point" data-ledge="rule-1" tabindex="0">
+            <span class="rule__n">02</span>
+            <h3>Ground every answer</h3>
+            <p>Retrieval with query expansion, and a knowledge graph that notices a missing jurisdiction and goes back for it.</p>
+            <span class="rule__src">GlassBox · Retrieve, Ground</span>
+          </li>
+          <li class="rule" data-rule="stamp" data-ledge="rule-2" tabindex="0">
+            <span class="rule__n">03</span>
+            <h3>Verify each claim</h3>
+            <p>Every sentence is split into claims and checked against the passage it cites. Unsupported claims are removed before anyone reads them.</p>
+            <span class="rule__src">GlassBox · Verify</span>
+          </li>
+          <li class="rule" data-rule="sign" data-ledge="rule-3" tabindex="0">
+            <span class="rule__n">04</span>
+            <h3>Refuse when evidence is weak</h3>
+            <p>Below the threshold the system abstains and routes the question to a person. A refusal is a correct answer.</p>
+            <span class="rule__src">GlassBox · Decide</span>
+          </li>
+        </ol>
+        <p class="ship"><b>Then ship it.</b> FastAPI services, Docker, and tests that run offline: 38 of them for GlassBox.</p>
+      </section>
+
+      <!-- ───────────────────────── Ask ───────────────────────── -->
+      <section class="ask" id="ask" data-stage="ask">
+        <div class="heaven" data-sky="ask" aria-hidden="true">
+          <div class="stars stars--fade"></div>
+          <span class="dusk"></span>
+        </div>
+        <header class="section__head">
+          <p class="label">Ask</p>
+          <h2 class="h2">Ask me. I’ll cite it,<br />or I won’t answer.</h2>
+          <p class="lede">
+            This searches <span data-passages>43</span> passages I wrote about my own work, right here in your browser.
+            Nothing you type is sent anywhere. If nothing I’ve written covers it, I don’t guess.
+          </p>
+        </header>
+        <div class="ask__panel">
+          <form class="ask__form" data-ask-form>
+            <label class="sr" for="ask-input">Ask about my work</label>
+            <div class="ask__field lit" data-ledge="ask">
+              <input id="ask-input" name="q" type="text" autocomplete="off" spellcheck="false" placeholder="Ask about my work" maxlength="160" />
+              <button class="btn btn--ink" type="submit">Ask</button>
+            </div>
+          </form>
+          <div class="ask__tries" aria-label="Try one of these">
+            <button type="button" data-try>How do you verify claims?</button>
+            <button type="button" data-try>Which vector database did you use?</button>
+            <button type="button" data-try>What did you build at the hackathon?</button>
+            <button type="button" data-try>What’s your favourite film?</button>
+          </div>
+          <div class="ask__out" data-ask-out aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- ───────────────────────── Record ───────────────────────── -->
+      <section class="record" id="record" data-stage="record">
+        <header class="section__head">
+          <p class="label">Record</p>
+          <h2 class="h2">Where I’ve been</h2>
+        </header>
+        <div class="record__grid">
+          <ol class="timeline" data-ledge="record">
+            <li><time>2026 —</time><div><b>Software Developer (AI/ML)</b><span>emPower eLearning</span></div></li>
+            <li><time>2025 —</time><div><b>M.Tech, Computer Engineering (in progress)</b><span>Ganpat University · CGPA 9.2</span></div></li>
+            <li><time>2024 — 26</time><div><b>Machine Learning Teaching Assistant</b><span>Ganpat University · 100+ students</span></div></li>
+            <li class="is-award"><time>2023</time><div><b>Top Team in Gujarat, national finalist</b><span>Code Unnati Innovation Marathon · <a href="#smartsurv">SmartSurv</a></span></div></li>
+            <li><time>2022 — 24</time><div><b>Vice-President, Computer Society</b><span>Institute of Advanced Research · 100+ members</span></div></li>
+            <li class="is-award"><time>2022</time><div><b>Runner-up among 50+ teams</b><span>SSIP Hackathon · <a href="#career">Smart Career</a></span></div></li>
+            <li><time>2020 — 24</time><div><b>B.Tech, Computer Science</b><span>Institute of Advanced Research</span></div></li>
+          </ol>
+          <div class="record__side">
+            <p class="about">
+              I’m a Software Developer (AI/ML) at emPower eLearning in Ahmedabad, building AI features for an
+              e-learning platform. The product is under NDA, so it isn’t described here. Alongside my own M.Tech I
+              taught machine learning to more than 100 B.Tech students, making backpropagation, gradient descent, CNNs
+              and transformers make sense to people meeting them for the first time.
+            </p>
+            <p class="about">
+              Since then I’ve taught myself well outside the original skill set, from deep learning and computer vision
+              into LLMs, RAG, embeddings, vector databases and agents, by building and debugging instead of watching
+              tutorials. I don’t claim expertise in all of it. I’m comfortable being dropped into something unfamiliar
+              and figuring it out.
+            </p>
+            <div class="kit">
+              <p class="label">Built with</p>
+              <ul class="chips chips--ink">
+                <li>RAG pipelines</li><li>Claim verification</li><li>FastEmbed · Qdrant</li><li>BM25</li><li>Agentic loops</li><li>Knowledge-graph grounding</li><li>Prompt-injection defence</li><li>Evaluation harnesses</li><li>PyTorch</li><li>TensorFlow</li><li>YOLOv8</li><li>OpenCV</li><li>FastAPI</li><li>React</li><li>Docker</li>
+              </ul>
+              <p class="label">Working knowledge</p>
+              <ul class="chips">
+                <li>LangChain</li><li>LangGraph</li><li>Hugging Face</li><li>Multi-agent architectures</li><li>AWS</li><li>MLflow</li><li>PostgreSQL</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────────────────────── Contact ───────────────────────── -->
+      <section class="contact" id="contact" data-stage="contact">
+        <div class="heaven" data-sky="contact">
+          <div class="stars stars--fade" aria-hidden="true"></div>
+          <span class="dusk" aria-hidden="true"></span>
+          <button class="orb orb--sun" type="button" data-orb="sun" aria-label="The sun. Press it and night falls."><span class="orb__disc"></span></button>
+          <button class="orb orb--moon" type="button" data-orb="moon" aria-label="The moon. Press it and the sun comes back."><span class="orb__disc"></span></button>
+        </div>
+        <div class="contact__head">
+          <p class="label">Contact</p>
+          <h2 class="contact__h">Have a retrieval problem that has to be&nbsp;right?</h2>
+        </div>
+        <p class="lede contact__lede">
+          I’m employed full-time in Ahmedabad (IST, UTC+5:30) and open to RAG and agent work, freelance or full-time.
+          Email is the fastest way to reach me.
+          <span class="contact__now" data-now></span>
+        </p>
+        <div class="contact__reach">
+          <div class="contact__row lit" data-ledge="contact">
+            <a class="mail" href="mailto:vyasrugved18@gmail.com">vyasrugved18@gmail.com</a>
+            <button class="btn btn--ink" type="button" data-copy-email><span data-copy-label>Copy email</span></button>
+          </div>
+          <p class="contact__links">
+            <a href="https://www.linkedin.com/in/rugved-vyas/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/Rugved-vyas18" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="resume.pdf" target="_blank" rel="noopener">Résumé, PDF ↗</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>© <span data-year>2026</span> Rugved Vyas · Ahmedabad</p>
+      <p>No analytics, no cookies. The search runs in your browser.</p>
+      <p class="foot__credits" data-credits></p>
+      <a class="foot__top" href="#top">Back to the top ↑</a>
+    </footer>
+
+    <dialog class="menu" id="menu" aria-label="Menu">
+      <div class="menu__top">
+        <span class="label">Menu</span>
+        <button class="ctl__b" type="button" data-menu-close aria-label="Close menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+      <nav class="menu__nav" aria-label="Sections">
+        <a href="#work" style="--i: 0"><b>01</b>Work</a>
+        <a href="#method" style="--i: 1"><b>02</b>Method</a>
+        <a href="#ask" style="--i: 2"><b>03</b>Ask</a>
+        <a href="#record" style="--i: 3"><b>04</b>Record</a>
+        <a href="#contact" style="--i: 4"><b>05</b>Contact</a>
+      </nav>
+      <div class="menu__ctl">
+        <button class="menu__sw" type="button" data-theme-toggle aria-pressed="false"><span class="ctl__b" aria-hidden="true"><svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" /><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3 7 7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" /></svg><svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2z" /></svg></span>Night<small>he kicks the sun out</small></button>
+        <button class="menu__sw" type="button" data-sound-toggle aria-pressed="false"><span class="ctl__b" aria-hidden="true"><svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.2L12 18.5v-13L7.2 9.5z" /><path d="m16.5 9.7 4 4.6M20.5 9.7l-4 4.6" /></svg><svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.2L12 18.5v-13L7.2 9.5z" /><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.3 6.5a8 8 0 0 1 0 11" /></svg></span>Sound<small>hear what he hears</small></button>
+        <button class="menu__sw" type="button" data-motion-toggle aria-pressed="false"><span class="ctl__b" aria-hidden="true"><svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12" /></svg><svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" /></svg></span>Pause<small>hold everything still</small></button>
+      </div>
+      <div class="menu__foot">
+        <button class="btn btn--ink" type="button" data-copy-email><span data-copy-label>Copy email</span></button>
+        <a href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a href="https://github.com/Rugved-vyas18" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/rugved-vyas/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </dialog>
+
+    <p class="sr" role="status" aria-live="polite" data-live></p>
+  </body>
+</html>

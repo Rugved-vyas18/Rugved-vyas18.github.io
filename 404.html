@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nothing here — Rugved Vyas</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <style>
+      @font-face {
+        font-family: 'Archivo';
+        font-weight: 100 900;
+        font-stretch: 62% 125%;
+        font-display: swap;
+        src: url('/fonts/archivo.woff2') format('woff2');
+      }
+      :root {
+        --sky: #86c3f7;
+        --ink: #10131a;
+        --card: #fff;
+        --on: #fff;
+      }
+      :root[data-theme='night'] {
+        --sky: #101b4b;
+        --ink: #f6efdc;
+        --card: #fff7e3;
+        --on: #0c1020;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100svh;
+        display: grid;
+        place-content: center;
+        justify-items: start;
+        gap: 18px;
+        padding: 28px clamp(18px, 6vw, 90px);
+        background: var(--sky);
+        color: var(--ink);
+        font: 480 clamp(1rem, 0.6vw + 0.9rem, 1.3rem) / 1.45 'Archivo', system-ui, sans-serif;
+      }
+      .n {
+        margin: 0;
+        font: 900 clamp(8rem, 34vw, 26rem) / 0.74 'Archivo', 'Arial Narrow', Impact, sans-serif;
+        font-stretch: 62%;
+        letter-spacing: -0.012em;
+      }
+      .sign {
+        display: inline-block;
+        padding: 10px 16px 9px;
+        background: var(--card);
+        color: #10131a;
+        border: 3px solid #10131a;
+        border-radius: 8px;
+        font: 900 clamp(1.3rem, 3vw, 2.2rem) / 1 'Archivo', 'Arial Narrow', sans-serif;
+        font-stretch: 62%;
+        text-transform: uppercase;
+        rotate: -2deg;
+      }
+      p {
+        margin: 0;
+        max-width: 34ch;
+      }
+      a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 48px;
+        padding: 0 1.3em;
+        border-radius: 999px;
+        background: var(--ink);
+        color: var(--on);
+        font-weight: 700;
+        text-decoration: none;
+      }
+      a:focus-visible {
+        outline: 3px solid var(--ink);
+        outline-offset: 3px;
+      }
+    </style>
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('rv-theme'); } catch (e) {}
+        if (t !== 'day' && t !== 'night') {
+          var h = new Date().getHours();
+          t = matchMedia('(prefers-color-scheme: dark)').matches || h >= 19 || h < 6 ? 'night' : 'day';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+  </head>
+  <body>
+    <h1 class="n">404</h1>
+    <span class="sign">No source, no answer</span>
+    <p>There is nothing at this address, and I don’t guess. The page that does exist is one click away.</p>
+    <a href="/">Back to Rugved’s page →</a>
+  </body>
+</html>
